@@ -1,11 +1,15 @@
-import './Banner.css';
+import './Banner.Module.css';
+import Menu from './Menu';
 
 /* ´É .jsx porque podemos usar HTML + JS */
 const Banner = () => {
     return(
-        <header className="banner">
-            <img src="/imagens/banner.jpg" alt="Banner principal da minha aplicação"/>
-        </header>
+        <div>        
+            <Menu />
+            <header className="banner">
+                <img src="/imagens/banner.jpg" alt="Banner principal da minha aplicação"/>
+            </header>
+        </div>
     )
 }
 

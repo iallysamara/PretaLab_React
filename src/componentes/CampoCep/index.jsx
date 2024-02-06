@@ -5,6 +5,7 @@ import './CampoCep.css';
 const CampoCep = (props) => {
     const [cep, setCep] = useState('');
     const [endereco, setEndereco] = useState('');
+    const [bairro, setBairro] = useState('');
 
     // Criar o useEffect que consome a api do cep https://viacep.com.br/ws/${cep}/json
     useEffect(() => {
@@ -12,8 +13,12 @@ const CampoCep = (props) => {
             try {
                 const response = await Axios.get(`https://viacep.com.br/ws/${cep}/json`); // Vai consumir a API
                 if(response.data && response.data.logradouro){ // verifica se a requisição foi bem sucedida
+
                     setEndereco(response.data.logradouro);
                     props.aoPreencherEndereco(response.data.logradouro); // Vamos passar lá no formulário
+
+                    setBairro(response.data.bairro);
+                    props.aoPreencherBairro(response.data.bairro);
                 }
             } catch (error) {
                 console.error('Erro ao buscar o endereço:', error);
@@ -38,8 +43,9 @@ const CampoCep = (props) => {
 return (
         // Criar duas labels e dois inputs
         <div className='campo-input'>
-            <label>{props.label}</label>
+            <label htmlFor='cepInput'>{props.label}</label>
             <input
+                id='cepInput'
                 onChange={aoDigitarNoCampo}
                 required={props.obrigatorio}
                 placeholder={props.placeholder}
@@ -48,9 +54,17 @@ return (
             />
 
             {/* Adicionei um segundo label e input para o endereço */}
-            <label>{props.labelEndereco}</label>
+            <label htmlFor='cepEndereco'>{props.labelEndereco}</label>
             <input
+                id='cepEndereco'
                 value={endereco}
+                readOnly={true}
+            />
+
+            <label htmlFor='cepBairro'>{props.labelBairro}</label>
+            <input
+                id='cepBairro'
+                value={bairro}
                 readOnly={true}
             />
 

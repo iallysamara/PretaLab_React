@@ -1,4 +1,3 @@
-
 import React from "react";
 import './Card.css';
 
@@ -10,6 +9,7 @@ const Card = ({referencia}) => {
             <p>Cargo: {referencia.cargo}</p>
             <p>Série: {referencia.serie}</p>
             <p>Endereço: {referencia.endereco}</p>
+            <p>Bairro: {referencia.bairro}</p>
             {referencia.pokemonEscolhido && (
                 <div className='pokemon-container'>
                     <p>Pokémon Escolhido: </p>

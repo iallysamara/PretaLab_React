@@ -31,6 +31,7 @@ const Formulario = ({aoReferenciaCadastrada}) => {
     const [pokemonEscolhido, setPokemonEscolhido] = useState(''); //Estado para armazenar o Pokémon escolhido
     const[cep, setCep] = useState('');
     const[endereco, setEndereco] = useState('');
+    const[bairro, setBairro] = useState('');
 
     const aoSalvar = (evento) => {
         //Pique na tela
@@ -42,7 +43,8 @@ const Formulario = ({aoReferenciaCadastrada}) => {
             serie,
             pokemonEscolhido,
             cep,
-            endereco
+            endereco,
+            bairro
         }
         aoReferenciaCadastrada(novoCard);
     }
@@ -90,7 +92,10 @@ const Formulario = ({aoReferenciaCadastrada}) => {
                     aoAlterarCampo = {setCep} 
 
                     labelEndereco = 'Endereço'
-                    aoPreencherEndereco = {setEndereco} 
+                    aoPreencherEndereco = {setEndereco}
+
+                    labelBairro = 'Bairro'
+                    aoPreencherBairro = {setBairro}
                 />
                 <Botao>Salvar</Botao>
             </form>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './SelectPokemon.css';
 import  Axios  from 'axios'; // Importando Axios para fazer a requisição HTTP
+import './SelectPokemon.css';
 
 // Criar a const com a props
 const SelectPokemon = (props) => {
